@@ -41,5 +41,16 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Repositories
             }
         }
 
+        //to update book title ...
+        public void UpdateBookTitle(int bookId, string newTitle)
+        {
+            var books = GetAllBooks();
+            var book = books.FirstOrDefault(b => b.BookId == bookId);
+            if (book != null)
+            {
+                book.Title = newTitle;
+                FileContext.SaveBooks(books);
+            }
+        }
     }
 }
