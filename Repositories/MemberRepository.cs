@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Repositories
 {
-    class MemberRepository : IMemberRepository
+    public class MemberRepository : IMemberRepository
     {
         //to get all members ...
         public List<Member> GetAllMembers()
