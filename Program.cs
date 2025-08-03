@@ -4,7 +4,10 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            //IBankAccountRepository repo = new BankAccountRepository();
+            //IBankService bankService = new BankService(repo);
+
+
         }
     }
 }
