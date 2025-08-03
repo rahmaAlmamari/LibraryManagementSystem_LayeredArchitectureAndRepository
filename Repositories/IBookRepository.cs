@@ -2,7 +2,7 @@
 
 namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Repositories
 {
-    internal interface IBookRepository
+    public interface IBookRepository
     {
         void AddBook(Book book);
         void DeleteBook(int bookId);
