@@ -40,5 +40,17 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Repositories
                 FileContext.SaveBorrowRecords(borrowRecords);
             }
         }
+
+        //to update ReturnDate for BorrowRecord ...
+        public void UpdateReturnDate(int borrowRecordId, DateTime returnDate)
+        {
+            var borrowRecords = GetAllBorrowRecords();
+            var borrowRecord = borrowRecords.FirstOrDefault(br => br.BorrowRecordId == borrowRecordId);
+            if (borrowRecord != null)
+            {
+                borrowRecord.ReturnDate = returnDate;
+                FileContext.SaveBorrowRecords(borrowRecords);
+            }
+        }
     }
 }
