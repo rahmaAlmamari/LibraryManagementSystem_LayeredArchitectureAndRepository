@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Services
 {
-    class LibraryService
+    public class LibraryService
     {
     }
 }
