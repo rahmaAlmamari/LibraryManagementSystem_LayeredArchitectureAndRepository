@@ -2,7 +2,7 @@
 
 namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Repositories
 {
-    internal interface IMemberRepository
+    public interface IMemberRepository
     {
         void AddMember(Member member);
         void DeleteMember(int memberId);
