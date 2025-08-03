@@ -29,5 +29,20 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository
             var json = JsonSerializer.Serialize(books);
             File.WriteAllText(BookFilePath, json);
         }
+
+        //to load and save Member data to file ...
+        public static List<Member> LoadMembers()
+        {
+            if (!File.Exists(MemberFilePath))
+                return new List<Member>();
+
+            var json = File.ReadAllText(MemberFilePath);
+            return JsonSerializer.Deserialize<List<Member>>(json) ?? new List<Member>();
+        }
+        public static void SaveMembers(List<Member> members)
+        {
+            var json = JsonSerializer.Serialize(members);
+            File.WriteAllText(MemberFilePath, json);
+        }
     }
 }
