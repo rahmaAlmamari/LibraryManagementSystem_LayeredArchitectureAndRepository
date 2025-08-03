@@ -11,16 +11,24 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Services
     public class LibraryService 
     {
         private readonly IBookRepository _BookRepository;
+        private readonly IMemberRepository _MemberRepository;
 
-        public LibraryService(IBookRepository book_repository)
+        public LibraryService(IBookRepository book_repository, IMemberRepository memberRepository)
         {
             _BookRepository = book_repository;
+            _MemberRepository = memberRepository;
         }
 
         //to add new book ...
         public void AddBook(Book book)
         {
             _BookRepository.AddBook(book);
+        }
+
+        //to register new member ...
+        public void RegisterMember(Member member)
+        {
+            _MemberRepository.AddMember(member);
         }
     }
 }
