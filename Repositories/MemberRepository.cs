@@ -20,5 +20,13 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Repositories
         {
             return GetAllMembers().FirstOrDefault(m => m.MemberId == memberId);
         }
+
+        //to add a new member ...
+        public void AddMember(Member member)
+        {
+            var members = GetAllMembers();
+            members.Add(member);
+            FileContext.SaveMembers(members);
+        }
     }
 }
