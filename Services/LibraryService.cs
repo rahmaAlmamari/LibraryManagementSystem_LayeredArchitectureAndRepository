@@ -32,5 +32,29 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Services
         {
             _MemberRepository.AddMember(member);
         }
+
+        //to borrow a book ...
+        void BorrowBook(string bookId, string memberId)
+        {
+            var book = _BookRepository.GetBookById(int.Parse(bookId));
+            var member = _MemberRepository.GetMemberById(int.Parse(memberId));
+            if (book != null && member != null && book.IsAvailable)
+            {
+                var borrowRecord = new BorrowRecord
+                {
+                    BookId = book.BookId,
+                    MemberId = member.MemberId,
+                    BorrowDate = DateTime.Now,
+                    ReturnDate = null
+                };
+                _BorrowRecordRepository.AddBorrowRecord(borrowRecord);
+                _BookRepository.UpdateBookAvailable(book.BookId);
+                Console.WriteLine($"Book '{book.Title}' borrowed by member '{member.Name}'.");
+            }
+            else
+            {
+                throw new Exception("Book is not available or member does not exist.");
+            }
+        }
     }
 }
