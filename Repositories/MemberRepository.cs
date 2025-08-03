@@ -40,5 +40,17 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Repositories
                 FileContext.SaveMembers(members);
             }
         }
+
+        //to delete a member ...
+        public void DeleteMember(int memberId)
+        {
+            var members = GetAllMembers();
+            var member = members.FirstOrDefault(m => m.MemberId == memberId);
+            if (member != null)
+            {
+                members.Remove(member);
+                FileContext.SaveMembers(members);
+            }
+        }
     }
 }
