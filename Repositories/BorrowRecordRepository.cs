@@ -28,5 +28,17 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Repositories
             borrowRecords.Add(borrowRecord);
             FileContext.SaveBorrowRecords(borrowRecords);
         }
+
+        //to update BorrowDate for BorrowRecord ...
+        public void UpdateBorrowDate(int borrowRecordId, DateTime newBorrowDate)
+        {
+            var borrowRecords = GetAllBorrowRecords();
+            var borrowRecord = borrowRecords.FirstOrDefault(br => br.BorrowRecordId == borrowRecordId);
+            if (borrowRecord != null)
+            {
+                borrowRecord.BorrowDate = newBorrowDate;
+                FileContext.SaveBorrowRecords(borrowRecords);
+            }
+        }
     }
 }
