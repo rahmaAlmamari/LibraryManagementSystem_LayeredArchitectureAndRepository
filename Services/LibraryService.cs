@@ -56,5 +56,31 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Services
                 throw new Exception("Book is not available or member does not exist.");
             }
         }
+
+        //to return a book ...
+        void ReturnBook(string bookId, string memberId) 
+        {
+            var book = _BookRepository.GetBookById(int.Parse(bookId));
+            var member = _MemberRepository.GetMemberById(int.Parse(memberId));
+            if (book != null && member != null)
+            {
+                var borrowRecord = _BorrowRecordRepository.GetAllBorrowRecords()
+                    .FirstOrDefault(br => br.BookId == book.BookId && br.MemberId == member.MemberId && br.ReturnDate == null);
+                if (borrowRecord != null)
+                {
+                    _BorrowRecordRepository.UpdateReturnDate(borrowRecord.BorrowRecordId, DateTime.Now);
+                    _BookRepository.UpdateBookAvailable(book.BookId);
+                    Console.WriteLine($"Book '{book.Title}' returned by member '{member.Name}'.");
+                }
+                else
+                {
+                    throw new Exception("No active borrow record found for this book and member.");
+                }
+            }
+            else
+            {
+                throw new Exception("Book or member does not exist.");
+            }
+        }
     }
 }
