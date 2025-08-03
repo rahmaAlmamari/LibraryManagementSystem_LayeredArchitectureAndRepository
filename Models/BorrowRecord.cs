@@ -8,5 +8,10 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Models
 {
     class BorrowRecord
     {
+        public int BorrowRecordId { get; set; }
+        public int MemberId { get; set; }
+        public int BookId { get; set; }
+        public DateTime BorrowDate { get; set; }
+        public DateTime? ReturnDate { get; set; } // Nullable to allow for books that haven't been returned yet
     }
 }
