@@ -44,5 +44,20 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository
             var json = JsonSerializer.Serialize(members);
             File.WriteAllText(MemberFilePath, json);
         }
+
+        //to load and save BorrowRecord data to file ...
+        public static List<BorrowRecord> LoadBorrowRecords()
+        {
+            if (!File.Exists(BorrowRecordFilePath))
+                return new List<BorrowRecord>();
+
+            var json = File.ReadAllText(BorrowRecordFilePath);
+            return JsonSerializer.Deserialize<List<BorrowRecord>>(json) ?? new List<BorrowRecord>();
+        }
+        public static void SaveBorrowRecords(List<BorrowRecord> BorrowRecords)
+        {
+            var json = JsonSerializer.Serialize(BorrowRecords);
+            File.WriteAllText(BorrowRecordFilePath, json);
+        }
     }
 }
