@@ -14,5 +14,11 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Repositories
         {
             return FileContext.LoadBooks();
         }
+
+        //to get a book by id ...
+        public Book GetBookById(int bookId)
+        {
+            return GetAllBooks().FirstOrDefault(b => b.BookId == bookId);
+        }
     }
 }
