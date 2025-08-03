@@ -20,5 +20,13 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Repositories
         {
             return GetAllBooks().FirstOrDefault(b => b.BookId == bookId);
         }
+
+        //to add a new book ...
+        public void AddBook(Book book)
+        {
+            var books = GetAllBooks();
+            books.Add(book);
+            FileContext.SaveBooks(books);
+        }
     }
 }
