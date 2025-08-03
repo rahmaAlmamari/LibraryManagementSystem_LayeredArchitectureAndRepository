@@ -52,5 +52,17 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Repositories
                 FileContext.SaveBorrowRecords(borrowRecords);
             }
         }
+
+        //to delete BorrowRecord by id ...
+        public void DeleteBorrowRecord(int borrowRecordId)
+        {
+            var borrowRecords = GetAllBorrowRecords();
+            var borrowRecord = borrowRecords.FirstOrDefault(br => br.BorrowRecordId == borrowRecordId);
+            if (borrowRecord != null)
+            {
+                borrowRecords.Remove(borrowRecord);
+                FileContext.SaveBorrowRecords(borrowRecords);
+            }
+        }
     }
 }
