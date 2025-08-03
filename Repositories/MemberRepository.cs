@@ -14,5 +14,11 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Repositories
         {
             return FileContext.LoadMembers();
         }
+
+        //to get a member by id ...
+        public Member GetMemberById(int memberId)
+        {
+            return GetAllMembers().FirstOrDefault(m => m.MemberId == memberId);
+        }
     }
 }
