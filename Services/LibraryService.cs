@@ -12,11 +12,13 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Services
     {
         private readonly IBookRepository _BookRepository;
         private readonly IMemberRepository _MemberRepository;
+        private readonly IBorrowRecordRepository _BorrowRecordRepository;
 
-        public LibraryService(IBookRepository book_repository, IMemberRepository memberRepository)
+        public LibraryService(IBookRepository book_repository, IMemberRepository memberRepository, IBorrowRecordRepository borrowRecordRepository)
         {
             _BookRepository = book_repository;
             _MemberRepository = memberRepository;
+            _BorrowRecordRepository = borrowRecordRepository;
         }
 
         //to add new book ...
