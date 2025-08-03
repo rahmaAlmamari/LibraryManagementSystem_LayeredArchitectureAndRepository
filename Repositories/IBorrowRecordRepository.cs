@@ -2,7 +2,7 @@
 
 namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Repositories
 {
-    internal interface IBorrowRecordRepository
+    public interface IBorrowRecordRepository
     {
         void AddBorrowRecord(BorrowRecord borrowRecord);
         void DeleteBorrowRecord(int borrowRecordId);
