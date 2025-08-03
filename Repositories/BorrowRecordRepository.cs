@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Repositories
 {
-    class BorrowRecordRepository
+    class BorrowRecordRepository : IBorrowRecordRepository
     {
         //to get all BorrowRecord ..
         public List<BorrowRecord> GetAllBorrowRecords()
