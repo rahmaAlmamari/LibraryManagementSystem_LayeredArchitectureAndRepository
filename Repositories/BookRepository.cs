@@ -64,5 +64,17 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Repositories
                 FileContext.SaveBooks(books);
             }
         }
+
+        //to delete a book ...
+        public void DeleteBook(int bookId)
+        {
+            var books = GetAllBooks();
+            var bookToRemove = books.FirstOrDefault(b => b.BookId == bookId);
+            if (bookToRemove != null)
+            {
+                books.Remove(bookToRemove);
+                FileContext.SaveBooks(books);
+            }
+        }
     }
 }
