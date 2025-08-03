@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Repositories
 {
-    class BookRepository
+    class BookRepository : IBookRepository
     {
         //to get all books ...
         public List<Book> GetAllBooks()
