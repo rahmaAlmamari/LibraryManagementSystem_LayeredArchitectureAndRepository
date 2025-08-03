@@ -28,5 +28,17 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Repositories
             members.Add(member);
             FileContext.SaveMembers(members);
         }
+
+        //to update member name ...
+        public void UpdateMemberName(int memberId, string NewName) 
+        {
+            var members = GetAllMembers();
+            var member = members.FirstOrDefault(m => m.MemberId == memberId);
+            if (member != null)
+            {
+                member.Name = NewName;
+                FileContext.SaveMembers(members);
+            }
+        }
     }
 }
