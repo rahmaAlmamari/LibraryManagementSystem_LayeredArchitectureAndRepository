@@ -20,5 +20,13 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Repositories
         {
             return GetAllBorrowRecords().FirstOrDefault(br => br.BorrowRecordId == borrowRecordId);
         }
+
+        //to add a new BorrowRecord ...
+        public void AddBorrowRecord(BorrowRecord borrowRecord)
+        {
+            var borrowRecords = GetAllBorrowRecords();
+            borrowRecords.Add(borrowRecord);
+            FileContext.SaveBorrowRecords(borrowRecords);
+        }
     }
 }
