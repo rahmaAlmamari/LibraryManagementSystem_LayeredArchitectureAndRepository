@@ -28,5 +28,18 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Repositories
             books.Add(book);
             FileContext.SaveBooks(books);
         }
+
+        //to update book IsAvailable ...
+        public void UpdateBookAvailable(int bookId)
+        {
+            var books = GetAllBooks();
+            var book = books.FirstOrDefault(b => b.BookId == bookId);
+            if (book != null)
+            {
+                book.IsAvailable = !book.IsAvailable; // Toggle availability
+                FileContext.SaveBooks(books);
+            }
+        }
+
     }
 }
