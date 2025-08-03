@@ -14,5 +14,11 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Repositories
         {
             return FileContext.LoadBorrowRecords();
         }
+
+        //to get BorrowRecord by id ...
+        public BorrowRecord GetBorrowRecordById(int borrowRecordId)
+        {
+            return GetAllBorrowRecords().FirstOrDefault(br => br.BorrowRecordId == borrowRecordId);
+        }
     }
 }
