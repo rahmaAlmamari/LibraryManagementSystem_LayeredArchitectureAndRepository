@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Repositories
 {
-    class MemberRepository
+    class MemberRepository : IMemberRepository
     {
         //to get all members ...
         public List<Member> GetAllMembers()
@@ -30,7 +30,7 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Repositories
         }
 
         //to update member name ...
-        public void UpdateMemberName(int memberId, string NewName) 
+        public void UpdateMemberName(int memberId, string NewName)
         {
             var members = GetAllMembers();
             var member = members.FirstOrDefault(m => m.MemberId == memberId);
