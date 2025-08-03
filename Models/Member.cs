@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Models
 {
-    class Member
+    public class Member
     {
         public int MemberId { get; set; }
         public string Name { get; set; }
