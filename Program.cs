@@ -47,6 +47,7 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository
                         //to add the book using library service
                         libraryService.AddBook(NewBook);
                         Console.WriteLine("Book added successfully.");
+                        Additional.HoldScreen();//to hold the screen for user to see the message
                         break;
                     case '2':
                         //to get user input for registering a member ...
@@ -57,6 +58,7 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository
                         //to register the member using library service
                         libraryService.RegisterMember(NewMember);
                         Console.WriteLine("Member registered successfully.");
+                        Additional.HoldScreen();//to hold the screen for user to see the message
                         break;
                     case '3':
                         //to get user input for borrowing a book ...
@@ -71,16 +73,20 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository
                         break;
                     case '5':
                         libraryService.PrintAllBooks();
+                        Additional.HoldScreen();//to hold the screen for user to see the message
                         break;
                     case '6':
                         libraryService.PrintAllMembers();
+                        Additional.HoldScreen();//to hold the screen for user to see the message
                         break;
                     case '7':
                         libraryService.PrintAllBorrowRecords();
+                        Additional.HoldScreen();//to hold the screen for user to see the message
                         break;
                     case '0':
                         exit = false;
                         Console.WriteLine("Exiting the system. Goodbye!");
+                        Additional.HoldScreen();//to hold the screen for user to see the message
                         break;
                 }
 
