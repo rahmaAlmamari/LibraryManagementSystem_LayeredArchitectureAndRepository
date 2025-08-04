@@ -77,8 +77,12 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository
                     case '7':
                         libraryService.PrintAllBorrowRecords();
                         break;
-
+                    case '0':
+                        exit = false;
+                        Console.WriteLine("Exiting the system. Goodbye!");
+                        break;
                 }
+
                 } while (exit) ;  
         }
     }
