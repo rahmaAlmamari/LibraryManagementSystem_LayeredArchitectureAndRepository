@@ -62,6 +62,11 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository
                         int memberIdToBorrow = Validation.IntValidation("member ID to borrow the book");
                         libraryService.BorrowBook(bookIdToBorrow, memberIdToBorrow);
                         break;
+                    case '4':
+                        int bookIdToReturn = Validation.IntValidation("book ID to return");
+                        int memberIdToReturn = Validation.IntValidation("member ID to return the book");
+                        libraryService.ReturnBook(bookIdToReturn, memberIdToReturn);
+                        break;
 
                 }
                 } while (exit) ;  
