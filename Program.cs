@@ -26,6 +26,7 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository
                 Console.WriteLine("4. Return Book");
                 Console.WriteLine("5. View All Books");
                 Console.WriteLine("6. View All Members");
+                Console.WriteLine("7. View All Borrow Records");
                 Console.WriteLine("0. Exit");
                 Console.WriteLine("Please enter your choice: ");
                 //to get user input
@@ -72,6 +73,9 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository
                         break;
                     case '6':
                         libraryService.PrintAllMembers();
+                        break;
+                    case '7':
+                        libraryService.PrintAllBorrowRecords();
                         break;
 
                 }
