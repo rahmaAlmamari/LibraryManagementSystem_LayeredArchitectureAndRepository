@@ -58,10 +58,10 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Services
         }
 
         //to return a book ...
-        public void ReturnBook(string bookId, string memberId)
+        public void ReturnBook(int bookId, int memberId)
         {
-            var book = _BookRepository.GetBookById(int.Parse(bookId));
-            var member = _MemberRepository.GetMemberById(int.Parse(memberId));
+            var book = _BookRepository.GetBookById(bookId);
+            var member = _MemberRepository.GetMemberById(memberId);
             if (book != null && member != null)
             {
                 var borrowRecord = _BorrowRecordRepository.GetAllBorrowRecords()
