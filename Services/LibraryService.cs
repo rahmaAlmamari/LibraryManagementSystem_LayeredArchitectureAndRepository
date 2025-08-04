@@ -34,7 +34,7 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Services
         }
 
         //to borrow a book ...
-        void BorrowBook(string bookId, string memberId)
+        public void BorrowBook(string bookId, string memberId)
         {
             var book = _BookRepository.GetBookById(int.Parse(bookId));
             var member = _MemberRepository.GetMemberById(int.Parse(memberId));
@@ -58,7 +58,7 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Services
         }
 
         //to return a book ...
-        void ReturnBook(string bookId, string memberId)
+        public void ReturnBook(string bookId, string memberId)
         {
             var book = _BookRepository.GetBookById(int.Parse(bookId));
             var member = _MemberRepository.GetMemberById(int.Parse(memberId));
