@@ -5,8 +5,8 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Services
     public interface ILibraryService
     {
         void AddBook(Book book);
-        void BorrowBook(string bookId, string memberId);
+        void BorrowBook(int bookId, int memberId);
         void RegisterMember(Member member);
-        void ReturnBook(string bookId, string memberId);
+        void ReturnBook(int bookId, int memberId);
     }
 }
