@@ -56,7 +56,12 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository
                         libraryService.RegisterMember(NewMember);
                         Console.WriteLine("Member registered successfully.");
                         break;
-
+                    case '3':
+                        //to get user input for borrowing a book ...
+                        int bookIdToBorrow = Validation.IntValidation("book ID to borrow");
+                        int memberIdToBorrow = Validation.IntValidation("member ID to borrow the book");
+                        libraryService.BorrowBook(bookIdToBorrow, memberIdToBorrow);
+                        break;
 
                 }
                 } while (exit) ;  
