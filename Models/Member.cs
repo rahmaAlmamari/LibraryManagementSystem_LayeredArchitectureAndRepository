@@ -10,5 +10,11 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Models
     {
         public int MemberId { get; set; }
         public string Name { get; set; }
+        public static int MemberCount = 0;
+        public Member()
+        {
+            MemberCount++;
+            MemberId = MemberCount;
+        }
     }
 }
