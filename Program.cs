@@ -1,4 +1,5 @@
 ﻿using LibraryManagementSystem_LayeredArchitectureAndRepository.Repositories;
+using LibraryManagementSystem_LayeredArchitectureAndRepository.Services;
 
 namespace LibraryManagementSystem_LayeredArchitectureAndRepository
 {
@@ -6,8 +7,6 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository
     {
         static void Main(string[] args)
         {
-            //IBankAccountRepository repo = new BankAccountRepository();
-            //IBankService bankService = new BankService(repo);
             IBookRepository bookRepository = new BookRepository();
             IMemberRepository memberRepository = new MemberRepository();
             IBorrowRecordRepository borrowRecordRepository = new BorrowRecordRepository();
