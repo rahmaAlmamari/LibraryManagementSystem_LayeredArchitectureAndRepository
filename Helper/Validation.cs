@@ -328,5 +328,27 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Helper
             return Regex.IsMatch(email, pattern, RegexOptions.IgnoreCase);
         }
 
+        //13. EmailValidation method to validate user email input ...
+        public static string EmailValidation(string message)
+        {
+            bool emailFlag;//to handle user email error input ...
+            string emailInput = "null";
+            do
+            {
+                emailFlag = false;
+                Console.WriteLine($"Enter your {message}:");
+                emailInput = Console.ReadLine();
+                //to check if emailInput is valid or not ...
+                if (!IsValidEmail(emailInput))
+                {
+                    Console.WriteLine($"{message} is not valid, please try again.");
+                    //Additional.HoldScreen();//just to hold a second ...
+                    emailFlag = true;
+                }
+            } while (emailFlag);
+            //to return tne char input ...
+            return emailInput;
+        }
+
     }
 }
