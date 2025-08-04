@@ -46,7 +46,16 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository
                         libraryService.AddBook(NewBook);
                         Console.WriteLine("Book added successfully.");
                         break;
-
+                    case '2':
+                        //to get user input for registering a member ...
+                        string memberName = Validation.StringNamingValidation("member name");
+                        //to create a new member object ...
+                        Models.Member NewMember = new Models.Member();
+                        NewMember.Name = memberName;
+                        //to register the member using library service
+                        libraryService.RegisterMember(NewMember);
+                        Console.WriteLine("Member registered successfully.");
+                        break;
 
 
                 }
