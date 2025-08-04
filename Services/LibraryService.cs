@@ -1,4 +1,5 @@
-﻿using LibraryManagementSystem_LayeredArchitectureAndRepository.Models;
+﻿using LibraryManagementSystem_LayeredArchitectureAndRepository.Helper;
+using LibraryManagementSystem_LayeredArchitectureAndRepository.Models;
 using LibraryManagementSystem_LayeredArchitectureAndRepository.Repositories;
 using System;
 using System.Collections.Generic;
@@ -50,10 +51,12 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Services
                 _BorrowRecordRepository.AddBorrowRecord(borrowRecord);
                 _BookRepository.UpdateBookAvailable(book.BookId);
                 Console.WriteLine($"Book '{book.Title}' borrowed by member '{member.Name}'.");
+                Additional.HoldScreen();//to hold the screen for user to see the message
             }
             else
             {
                 throw new Exception("Book is not available or member does not exist.");
+                Additional.HoldScreen();//to hold the screen for user to see the message
             }
         }
 
@@ -71,10 +74,12 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Services
                     _BorrowRecordRepository.UpdateReturnDate(borrowRecord.BorrowRecordId, DateTime.Now);
                     _BookRepository.UpdateBookAvailable(book.BookId);
                     Console.WriteLine($"Book '{book.Title}' returned by member '{member.Name}'.");
+                    Additional.HoldScreen();//to hold the screen for user to see the message
                 }
                 else
                 {
                     throw new Exception("No active borrow record found for this book and member.");
+                    Additional.HoldScreen();//to hold the screen for user to see the message
                 }
             }
             else
