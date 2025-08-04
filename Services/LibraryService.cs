@@ -96,13 +96,32 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Services
                 Console.WriteLine("Books in the library:");
                 foreach (var book in books)
                 {
-                    Console.WriteLine($"ID: {book.BookId}\n" + 
-                                      $"Title: {book.Title}\n" +  
-                                      $"Author: {book.Author}\n" + 
+                    Console.WriteLine($"ID: {book.BookId}\n" +
+                                      $"Title: {book.Title}\n" +
+                                      $"Author: {book.Author}\n" +
                                       $"Available: {book.IsAvailable}");
                 }
             }
         }
 
+        //to print all members details ...
+        public void PrintAllMembers()
+        {
+            var members = _MemberRepository.GetAllMembers();
+            if (members.Count == 0)
+            {
+                Console.WriteLine("No members registered in the library.");
+            }
+            else
+            {
+                Console.WriteLine("Registered members:");
+                foreach (var member in members)
+                {
+                    Console.WriteLine($"ID: {member.MemberId}\n" +
+                                      $"Name: {member.Name}");
+                }
+            }
+
+        }
     }
 }
