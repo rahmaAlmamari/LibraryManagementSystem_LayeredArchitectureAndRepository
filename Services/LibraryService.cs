@@ -34,10 +34,10 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Services
         }
 
         //to borrow a book ...
-        public void BorrowBook(string bookId, string memberId)
+        public void BorrowBook(int bookId, int memberId)
         {
-            var book = _BookRepository.GetBookById(int.Parse(bookId));
-            var member = _MemberRepository.GetMemberById(int.Parse(memberId));
+            var book = _BookRepository.GetBookById(bookId);
+            var member = _MemberRepository.GetMemberById(memberId);
             if (book != null && member != null && book.IsAvailable)
             {
                 var borrowRecord = new BorrowRecord
