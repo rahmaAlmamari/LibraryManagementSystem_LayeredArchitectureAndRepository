@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Helper
@@ -316,7 +317,16 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Helper
             return IsUnique; // No match
         }
 
-        //12. EmailValidation method...
+        //12. IsValidEmail method to check if email in the right format or not ...
+        public static bool IsValidEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+
+            // Basic but solid regex for general email validation
+            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(email, pattern, RegexOptions.IgnoreCase);
+        }
 
     }
 }
