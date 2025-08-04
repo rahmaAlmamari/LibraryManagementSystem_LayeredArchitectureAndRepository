@@ -1,4 +1,5 @@
-﻿using LibraryManagementSystem_LayeredArchitectureAndRepository.Repositories;
+﻿using LibraryManagementSystem_LayeredArchitectureAndRepository.Helper;
+using LibraryManagementSystem_LayeredArchitectureAndRepository.Repositories;
 using LibraryManagementSystem_LayeredArchitectureAndRepository.Services;
 
 namespace LibraryManagementSystem_LayeredArchitectureAndRepository
@@ -33,11 +34,16 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository
                 switch (choice)
                 {
                     case '1':
-                        Console.WriteLine("Enter Book Title: ");
-                        string title = Console.ReadLine();
-                        Console.WriteLine("Enter Book Author: ");
-                        string author = Console.ReadLine();
-                        libraryService.AddBook(new Models.Book { Title = title, Author = author, IsAvailable = true });
+                        //to get user input for adding a book ...
+                        string title = Validation.StringNamingValidation("book title");
+                        string author = Validation.StringNamingValidation("book author");
+                        //to create a new book object ...
+                        Models.Book NewBook = new Models.Book();
+                        NewBook.Title = title;
+                        NewBook.Author = author;
+                        NewBook.IsAvailable = true;
+                        //to add the book using library service
+                        libraryService.AddBook(NewBook);
                         Console.WriteLine("Book added successfully.");
                         break;
 
