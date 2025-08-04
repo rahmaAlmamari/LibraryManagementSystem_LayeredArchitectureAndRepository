@@ -123,5 +123,27 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Services
             }
 
         }
+
+        //to print all borrow records details ...
+        public void PrintAllBorrowRecords() 
+        {
+            var borrowRecords = _BorrowRecordRepository.GetAllBorrowRecords();
+            if (borrowRecords.Count == 0)
+            {
+                Console.WriteLine("No borrow records found.");
+            }
+            else
+            {
+                Console.WriteLine("Borrow Records:");
+                foreach (var record in borrowRecords)
+                {
+                    Console.WriteLine($"Record ID: {record.BorrowRecordId}\n" +
+                                      $"Book ID: {record.BookId}\n" +
+                                      $"Member ID: {record.MemberId}\n" +
+                                      $"Borrow Date: {record.BorrowDate}\n" +
+                                      $"Return Date: {(record.ReturnDate.HasValue ? record.ReturnDate.Value.ToString() : "Not returned yet")}");
+                }
+            }
+        }
     }
 }
