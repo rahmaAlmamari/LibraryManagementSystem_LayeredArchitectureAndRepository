@@ -82,5 +82,27 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Services
                 throw new Exception("Book or member does not exist.");
             }
         }
+
+        //to print all books details ...
+        public void PrintAllBooks()
+        {
+            var books = _BookRepository.GetAllBooks();
+            if (books.Count == 0)
+            {
+                Console.WriteLine("No books available in the library.");
+            }
+            else
+            {
+                Console.WriteLine("Books in the library:");
+                foreach (var book in books)
+                {
+                    Console.WriteLine($"ID: {book.BookId}\n" + 
+                                      $"Title: {book.Title}\n" +  
+                                      $"Author: {book.Author}\n" + 
+                                      $"Available: {book.IsAvailable}");
+                }
+            }
+        }
+
     }
 }
