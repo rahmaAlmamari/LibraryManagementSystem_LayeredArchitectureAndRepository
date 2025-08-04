@@ -32,7 +32,14 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository
                 //to call the appropriate method based on user choice
                 switch (choice)
                 {
-
+                    case '1':
+                        Console.WriteLine("Enter Book Title: ");
+                        string title = Console.ReadLine();
+                        Console.WriteLine("Enter Book Author: ");
+                        string author = Console.ReadLine();
+                        libraryService.AddBook(new Models.Book { Title = title, Author = author, IsAvailable = true });
+                        Console.WriteLine("Book added successfully.");
+                        break;
 
 
 
