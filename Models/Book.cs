@@ -12,5 +12,12 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Models
         public string Title { get; set; }
         public string Author { get; set; }
         public bool IsAvailable { get; set; }
+        public static int BookCount = 0;
+
+        public Book()
+        {
+            BookCount++;
+            BookId = BookCount;
+        }
     }
 }
