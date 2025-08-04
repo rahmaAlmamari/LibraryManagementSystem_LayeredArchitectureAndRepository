@@ -70,6 +70,9 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository
                     case '5':
                         libraryService.PrintAllBooks();
                         break;
+                    case '6':
+                        libraryService.PrintAllMembers();
+                        break;
 
                 }
                 } while (exit) ;  
