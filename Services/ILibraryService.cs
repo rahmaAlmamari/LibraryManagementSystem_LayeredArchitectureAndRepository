@@ -8,5 +8,8 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository.Services
         void BorrowBook(int bookId, int memberId);
         void RegisterMember(Member member);
         void ReturnBook(int bookId, int memberId);
+        public void PrintAllBooks();
+        public void PrintAllMembers();
+        public void PrintAllBorrowRecords();
     }
 }
