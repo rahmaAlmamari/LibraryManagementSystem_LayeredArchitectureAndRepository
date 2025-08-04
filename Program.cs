@@ -19,6 +19,7 @@ namespace LibraryManagementSystem_LayeredArchitectureAndRepository
             do
             {
                 //to display menu options
+                Console.Clear();
                 Console.WriteLine("Welcome to the Library Management System");
                 Console.WriteLine("1. Add Book");
                 Console.WriteLine("2. Register Member");
